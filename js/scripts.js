@@ -43,21 +43,25 @@ Player.prototype.newGame = function () {
   this.playerName = "";
 }
 
+function startThis(event) {
+  event.preventDefault()
+  let player1 = document.getElementById("p1")
+  console.log(player1);
+  let player2 = document.getElementById("p2")
+  let newGame = Player.prototype.newGame
+  document.querySelector("span#playerUnNombre").innerHTML = player1.value
+  document.querySelector("span#playerDosNombre").innerHTML = player2.value
+}
+
+function rollDice(event) {
+  event.preventDefault()
+  let roll = diceGoVroom();
+  document.querySelector("span#diceRollP1").innerText = roll
+}
+
 window.addEventListener("load", function() {
-  const form = document.querySelector("form")
-
-  form.addEventListener("submit", function(event) {
-    event.preventDefault()
-    //const strtBtn = document.querySelector("button#submit")
-    let player1 = document.getElementById("p1")
-    console.log(player1);
-    let player2 = document.getElementById("p2")
-    let newGame = Player.prototype.newGame
-    document.querySelector("span#playerUnNombre").innerHTML = player1.value
-    document.querySelector("span#playerDosNombre").innerHTML = player2.value
-    });
-
-    
+  document.querySelector("form").addEventListener("submit", startThis);
+  document.querySelector("button#playerOneRoll").addEventListener("click", rollDice);
 
 })
 

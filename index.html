@@ -4,34 +4,36 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/styles.css" rel="stylesheet" type="text">
+  <script src="js/scripts.js"></script>
   <title>Pig Dice</title>
 </head>
 <body>
   <div class="container">
-    <div class="headOne">
-      <h1>Pig Dice</h1>
-      <p>Oink Oink, take a chance in the world of Pig Dice!</p>
-    </div>
+    <div class="start">
+      <div class="headOne">
+        <h1>Pig Dice</h1>
+        <p>Oink Oink, take a chance in the world of Pig Dice!</p>
+      </div>
 
-    <div class="forms">
-      <form id="playerOne">
-        <label for="player1">Player Name:</label>
-        <input class="playerOnename" type="text">
-      </form>
-      <br>
-      <form id="playerTwo">
-        <label for="player2">Player Name:</label>
-        <input class="playerOnename" type="text">
-      </form>
-      <br>
-      <button id="start" class="btn">Start</button>
+      <div class="forms">
+        <form id="players">
+          <label for="player1">Player Name:</label>
+          <input class="playerOnename" type="text" id="p1">
+        <br>
+          <label for="player2">Player Name:</label>
+          <input class="playerTwoname" type="text" id="p2">
+          <br>
+        <button id="start" class="btn" type="submit">Start</button>
+        </form>
+      </div>
     </div>
     <br>
-    <button id="new game" class="btnWorks">New Game!!!</button>
       
     <div class="playerPush">
+      <button id="new game" class="btnWorks">New Game!!!</button>
       <h2>Player 1: 
-        <span id=" playerUnNombre"></span>
+        <span id="playerUnNombre"></span>
       </h2>
       <button id="playerOneRoll" class="btn">Roll</button>
       <br>
@@ -41,7 +43,7 @@
       <h2>Overall Total:<span id="totalAllP1"></span></h2>
 
       <h2>Player 2: 
-        <span id=" playerDosNombre"></span>
+        <span id="playerDosNombre"></span>
       </h2>
       <button id="playerTwoRoll" class="btn">Roll</button>
       <br>

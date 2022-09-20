@@ -43,8 +43,23 @@ Player.prototype.newGame = function () {
   this.playerName = "";
 }
 
-function formSubmission(event) {
-  event.preventDefault();
-  p1 = new Player(true);
-  p2 = new Player (false);
-  document.querySelector(".")
+window.addEventListener("load", function() {
+  const form = document.querySelector("form")
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault()
+    //const strtBtn = document.querySelector("button#submit")
+    let player1 = document.getElementById("p1")
+    console.log(player1);
+    let player2 = document.getElementById("p2")
+    let newGame = Player.prototype.newGame
+    document.querySelector("span#playerUnNombre").innerHTML = player1.value
+    document.querySelector("span#playerDosNombre").innerHTML = player2.value
+    });
+
+    
+
+})
+
+//Ui//
+

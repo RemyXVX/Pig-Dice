@@ -2,14 +2,10 @@
 let player1 = "";
 let player2 = "";
 
-//let person1 = document.getElementsByClassName("playerOnename").value;
-//console.log(person1);
-
 const diceGoVroom = function () {
   return Math.floor(6*Math.random()) + 1;
 }
 
-//Constructor//
 function Player() {
   this.roll = 0;
   this.scoreForNow = 0;
@@ -57,6 +53,7 @@ function startThis(event) {
   document.querySelector("span#playerDosNombre").innerHTML = player2.playerName
 }
 
+
 ///////////////////////////////////////////////////////////////////////////
 
 function rollDiceOne(event) {
@@ -91,13 +88,26 @@ function holdMyHandTwo(event) {
   document.getElementById("diceRollP2").innerHTML = "";
 }
 
+function itsOver(event) {
+  event.preventDefault()
+  player1.newGame();
+  document.getElementById("totalAllP1").innerHTML = "";
+  document.getElementById("diceTotalP1").innerHTML = "";
+  document.getElementById("diceRollP1").innerHTML = "";
+  player2.newGame();
+  document.getElementById("totalAllP2").innerHTML = "";
+  document.getElementById("diceTotalP2").innerHTML = "";
+  document.getElementById("diceRollP2").innerHTML = "";
+}
+
 window.addEventListener("load", function() {
   document.querySelector("form#players1").addEventListener("submit", startThis);
   document.querySelector("form#players2").addEventListener("submit", startThis)
   document.querySelector("button#playerOneRoll").addEventListener("click", rollDiceOne);
-  this.document.querySelector("button#playerOneHold").addEventListener("click", holdMyHandOne)
+  document.querySelector("button#playerOneHold").addEventListener("click", holdMyHandOne)
   document.querySelector("button#playerTwoRoll").addEventListener("click", rollDiceTwo);
-  this.document.querySelector("button#playerTwoHold").addEventListener("click", holdMyHandTwo)
+  document.querySelector("button#playerTwoHold").addEventListener("click", holdMyHandTwo)
+  document.querySelector("button#newGame").addEventListener("click", itsOver);
 })
 
 

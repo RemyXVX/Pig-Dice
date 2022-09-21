@@ -1,6 +1,9 @@
 //Brain//
-const player1 = "";
-const player2 = "";
+let player1 = "";
+let player2 = "";
+
+//let person1 = document.getElementsByClassName("playerOnename").value;
+//console.log(person1);
 
 const diceGoVroom = function () {
   return Math.floor(6*Math.random()) + 1;
@@ -43,15 +46,18 @@ Player.prototype.newGame = function () {
   this.playerName = "";
 }
 
+//UI//
 function startThis(event) {
   event.preventDefault()
-  let player1 = document.getElementById("p1")
-  console.log(player1);
-  let player2 = document.getElementById("p2")
-  let newGame = Player.prototype.newGame
-  document.querySelector("span#playerUnNombre").innerHTML = player1.value
-  document.querySelector("span#playerDosNombre").innerHTML = player2.value
+  player1 = new Player(true);
+  player2 = new Player(false);
+  player1.playerName = document.getElementById("p1").value;
+  player2.playerName = document.getElementById("p2").value;
+  document.querySelector("span#playerUnNombre").innerHTML = player1.playerName
+  document.querySelector("span#playerDosNombre").innerHTML = player2.playerName
 }
+
+///////////////////////////////////////////////////////////////////////////
 
 function rollDice(event) {
   event.preventDefault()
@@ -60,10 +66,10 @@ function rollDice(event) {
 }
 
 window.addEventListener("load", function() {
-  document.querySelector("form").addEventListener("submit", startThis);
+  document.querySelector("form#players1").addEventListener("submit", startThis);
+  document.querySelector("form#players2").addEventListener("submit", startThis)
   document.querySelector("button#playerOneRoll").addEventListener("click", rollDice);
 
 })
 
-//Ui//
 

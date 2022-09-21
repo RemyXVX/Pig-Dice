@@ -61,8 +61,10 @@ function startThis(event) {
 
 function rollDice(event) {
   event.preventDefault()
-  let roll = diceGoVroom();
-  document.querySelector("span#diceRollP1").innerText = roll
+  player1.roll = diceGoVroom();
+  document.querySelector("span#diceRollP1").innerText = player1.roll;
+  player1.rollOn();
+  document.getElementById("diceTotalP1").innerText = player1.scoreForNow;
 }
 
 window.addEventListener("load", function() {

@@ -17,7 +17,7 @@ function Player() {
 Player.prototype.rollOn = function () {
   if (this.roll === 1) {
     this.scoreForNow = 0;
-    return console.log("Try again " + this.playerName + ". Maybe you won't suck as much.")
+    return ("Try again " + this.playerName + ". Maybe you won't suck as much.")
   } else {
   this.scoreForNow += this.roll;
   }
@@ -27,12 +27,6 @@ Player.prototype.hold = function () {
   this.totalScore += this.scoreForNow;
   this.scoreForNow = 0;
   return this.totalScore
-}
-
-Player.prototype.winner = function () {
-  if (this.totalScore >= 100) {
-    return this.totalScore.push("You won" + this.playerName + "!");
-  }
 }
 
 Player.prototype.newGame = function () {
@@ -53,8 +47,6 @@ function startThis(event) {
   document.querySelector("span#playerDosNombre").innerHTML = player2.playerName
 }
 
-
-///////////////////////////////////////////////////////////////////////////
 
 function rollDiceOne(event) {
   event.preventDefault()
@@ -78,6 +70,10 @@ function holdMyHandOne(event) {
   document.getElementById("totalAllP1").innerText = player1.totalScore;
   document.getElementById("diceTotalP1").innerHTML = "";
   document.getElementById("diceRollP1").innerHTML = "";
+
+  if (player1.totalScore >= 100) {
+    document.getElementById("message1").innerText = "You're awesome dawg"
+    };
 }
 
 function holdMyHandTwo(event) {
@@ -86,6 +82,10 @@ function holdMyHandTwo(event) {
   document.getElementById("totalAllP2").innerText = player2.totalScore;
   document.getElementById("diceTotalP2").innerHTML = "";
   document.getElementById("diceRollP2").innerHTML = "";
+
+  if (player2.totalScore >= 100) {
+    document.getElementById("message2").innerText = "You're awesome dawg"
+    };
 }
 
 function itsOver(event) {
